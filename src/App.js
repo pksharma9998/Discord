@@ -1,30 +1,21 @@
 import React, { useState, useEffect, useCallback } from "react"
 import './App.css';
-import {
-  MDBCarousel,
-  MDBCarouselItem,
-} from 'mdb-react-ui-kit';
+import { useTypewriter, Cursor } from "react-simple-typewriter";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 function App() {
-  const names = [
-    `I'm React Developer`, 'Web Developer', 'Next JS Developer'
-  ]
+  const [text] = useTypewriter({
+    words: ['React Developer', 'Web Developer', 'Next JS Developer'],
+    loop: 0
+  })
 
-  const [newName, setnewName] = useState("");
+  const [toggle, setToggle] = useState(false)
 
-  const shuffle = useCallback(() => {
-    const index = Math.floor(Math.random() * names.length);
-    setnewName(names[index]);
-  }, []);
-
-  useEffect(() => {
-    const intervalID = setInterval(shuffle, 1000);
-    return () => clearInterval(intervalID);
-  }, [shuffle])
 
   return (
-    <>
-      <i className="bi bi-list mobile-nav-toggle d-xl-none"></i>
+    <div className={`${toggle ? "mobile-nav-active" : ""}`}>
+      <i className={`${toggle ? "bi-x" : ""} bi bi-list mobile-nav-toggle d-xl-none`} onClick={() => setToggle(!toggle)}></i>
 
       <header id="header">
         <div className="d-flex flex-column">
@@ -54,7 +45,11 @@ function App() {
       <section id="hero" className="d-flex flex-column justify-content-center align-items-center">
         <div className="hero-container" data-aos="fade-in">
           <h1>Pawan G. Sharma</h1>
-          <p>{newName} <span className="typed" data-typed-items="Designer, Developer, Freelancer"></span></p>
+          <p>
+            I'm {text}
+            {/* <Cursor /> */}
+            <span className="typed" data-typed-items="Designer, Developer, Freelancer"></span>
+          </p>
         </div>
       </section>
 
@@ -204,13 +199,13 @@ function App() {
 
                 <div className="container text-center">
                   <div className="row">
-                    <div className="col border bg-success text-white">HTML</div>
-                    <div className="col border bg-success text-white">CSS/CSS3</div>
-                    <div className="col border bg-success text-white">JavaScript</div>
-                    <div className="col border bg-success text-white">Bootstrap</div>
-                    <div className="col border bg-success text-white">jQuery</div>
-                    <div className="col border bg-success text-white">Bootstrap</div>
-                    <div className="col border bg-success text-white">Material CSS</div>
+                    <div className="col border bg-success text-white p-3">HTML</div>
+                    <div className="col border bg-success text-white p-3">CSS/CSS3</div>
+                    <div className="col border bg-success text-white p-3">JavaScript</div>
+                    <div className="col border bg-success text-white p-3">Bootstrap</div>
+                    <div className="col border bg-success text-white p-3">jQuery</div>
+                    <div className="col border bg-success text-white p-3">Bootstrap</div>
+                    <div className="col border bg-success text-white p-3">Material CSS</div>
                   </div>
                 </div>
 
@@ -232,7 +227,11 @@ function App() {
               <div className="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
                 <div className="icon"><i className="bi bi-building"></i></div>
                 <h4 className="title"><a href="">SOP</a></h4>
-                <p className="description">SOP stands for Standard Operating Procedure. Company internal management system like department, company's rules list.</p>
+                <p className="description">SOP stands for Standard Operating Procedure. Organization internal system management for keep up to date Departments and its employees.
+                  Login and Register with JWT token security,
+                  Data retrieving with filtering,
+                  Admin panel and User panel,
+                  Ckeditor implementation.</p>
               </div>
               <div className="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
                 <div className="icon"><i className="bi bi-receipt"></i></div>
@@ -248,7 +247,9 @@ function App() {
                 <div className="icon"><i className="bi bi-coin"></i></div>
                 <h4 className="title"><a href="">Crome</a></h4>
                 <p className="description">
-                  Through this project, you can create your own crypto currency and this project was in the Next JS.</p>
+                  Google Authentication (sign in with Google).Crypto Coin/Token Development
+                  through this project, you can create your own crypto currency and this project was in the Next JS.User requirements gathering fully controlled by Admin,
+                  JWT Token and 2FA Security.</p>
               </div>
               <div className="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
                 <div className="icon"><i className="bi bi-currency-bitcoin"></i></div>
@@ -260,7 +261,7 @@ function App() {
           </div>
         </section>
 
-        <section id="testimonials" className="testimonials section-bg">
+        {/* <section id="testimonials" className="testimonials section-bg">
           <div className="container">
 
             <div className="section-title">
@@ -269,37 +270,108 @@ function App() {
 
             <div className="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
               <div className="swiper-wrapper">
-                <MDBCarousel showControls showIndicators>
-                  <MDBCarouselItem
-                    className='w-100 d-block '
-                    itemId={1}
-                    src='/assets/img/testimonials-1.jpg'
-                    alt='...'
-                  >
-                    <h1><p className="text-danger fw-bold"> Mr. Mihir Nasit</p></h1>
-                    <p className="bg-success text-white">1 year of experience in web application development in Node JS and React JS environment. My task is to Developing REST apis.</p>
-                    <p className="bg-success text-white">I have expertise and experience in a variety programming languages. Strong knowledge of web technologies such as HTML, CSS, Bootstrap, JavaScript, Node JS, Socket.io, React JS and others. Database skills like Mongodb, MySQL,</p>
-                  </MDBCarouselItem>
-                  <MDBCarouselItem
-                    className='w-100 d-block'
-                    itemId={2}
-                    src='/assets/img/testimonials-2.jpg'
-                    alt='...'
-                  >
-                    <h1><p className="text-danger fw-bold">Mr. Prayag Kothiya</p></h1>
-                    <p className="bg-success text-white">1 year of experience in web application development in React JS environment.
-                      Strong knowledge of web technologies such as HTML, CSS, Bootstrap, and others.
-                    </p>
-                    <p className="bg-success text-white">In-depth knowledge of JavaScript, React JS, jQuery, and other languages </p>
-                  </MDBCarouselItem>
-                </MDBCarousel>
+                <Carousel
+
+                  autoPlay={false}
+                  autoPlaySpeed={999999}
+                  focusOnSelect={false}
+                  infinite
+                  keyBoardControl
+                  minimumTouchDrag={80}
+                  renderButtonGroupOutside={false}
+                  renderDotsOutside={false}
+                  // centerMode
+                  partialVisbile
+                  responsive={{
+                    desktop: {
+                      breakpoint: {
+                        max: 3000,
+                        min: 1024,
+                      },
+                      items: 6,
+                      partialVisibilityGutter: -1,
+                    },
+                    mobile: {
+                      breakpoint: {
+                        max: 464,
+                        min: 0,
+                      },
+                      items: 1,
+                    },
+                    tablet: {
+                      breakpoint: {
+                        max: 1024,
+                        min: 464,
+                      },
+                      items: 3,
+                    },
+                  }}
+                  slidesToSlide={1}
+                  swipeable
+                >
+                  <div className="row container col-12 image-sm-center">
+                    <div className="col-2 card-image-768 card-client-image-position">
+                      <img
+                        src="/assets/img/testimonials-1.jpg"
+                        alt="client-1-icon"
+                      />
+                    </div>
+                    <div className="col-8 text-center">
+                      <div>
+                        <h5>Mr. Mihir Nasit</h5>
+                        <small className="text-black-50">
+                          Node JS Developer
+                        </small>
+                      </div>
+
+                      <div className="col-12">
+                        <div className="client-review">
+                          <p>
+                            1 year of experience in web application development in Node JS and React JS environment. My task is to Developing REST apis.
+                          </p>
+                          <p>I have expertise and experience in a variety programming languages. Strong knowledge of web technologies such as HTML, CSS, Bootstrap, JavaScript, Node JS, Socket.io, React JS and others. Database skills like Mongodb, MySQL.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="row container col-12 image-sm-center">
+                    <div className="col-2 card-image-768 card-client-image-position">
+                      <img
+                        src="/assets/img/testimonials-2.jpg"
+                        alt="client-2-icon"
+                      />
+                    </div>
+
+                    <div className="col-8 text-center">
+                      <div>
+                        <h5>Mr. Prayag Kothiya</h5>
+                        <small className="text-black-50">
+                          React JS Developer
+                        </small>
+                      </div>
+
+                      <div className="col-12">
+                        <div className="client-review">
+                          <p>
+                            1 year of experience in web application development in React JS environment.
+                            Strong knowledge of web technologies such as HTML, CSS, Bootstrap, and others.
+                          </p>
+                          <p>In-depth knowledge of JavaScript, React JS, jQuery, and other languages</p>
+                        </div>
+                      </div>
+                    </div>
+
+
+                  </div>
+                </Carousel>
 
               </div>
               <div className="swiper-pagination"></div>
             </div>
 
           </div>
-        </section>
+        </section> */}
 
         <section id="contact" className="contact">
           <div className="container">
@@ -321,7 +393,7 @@ function App() {
                   <div className="email">
                     <i className="bi bi-envelope"></i>
                     <h4>Email:</h4>
-                    <p>pawansharma9998@gmail</p>
+                    <p>pawansharma9998@gmail.com</p>
                   </div>
 
                   <div className="address">
@@ -369,10 +441,8 @@ function App() {
         </section>
       </main>
 
-
-
       <a href="#" className="back-to-top d-flex align-items-center justify-content-center"><i className="bi bi-arrow-up-short"></i></a>
-    </>
+    </div>
   );
 }
 
