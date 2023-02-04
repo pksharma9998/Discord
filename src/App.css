@@ -5,3 +5,156 @@
 .carousel-caption{
   display: block !important;
 }
+
+.home-bg{
+  width: 100%;
+  height: auto;
+  background: #a9a6a6;
+}
+.text-new{
+  font-size: 12px;
+  padding: 1% 3%;
+  border-radius: 35%;
+  font-weight: 700;
+  background-color: #c357c5f2;
+}
+
+.text-size{
+  font-size: 15px;
+}
+.text-small-size{
+  font-size: 12px;
+}
+
+
+
+.first-section-bg{
+  background: #2e3134;
+}
+.li-icon-custom{
+  font-size: 16px; border-radius: 35%; padding: 70%; background: #5458d9;
+}
+.li-icon-user-custom{
+  font-size: 16px; border-radius: 50%; padding: 70%; background: green;
+}
+.li-circle-icon-custom{
+  font-size: 16px; border-radius: 50%; padding: 70%;
+}
+.text-sharp-solid-custom{
+  font-size: 16px; border-radius: 50%; padding: 70%; background: #000;
+}
+.icon-usergroup{
+  font-size: 16px; border-radius: 50%; padding: 70%; background: red;
+}
+.text-icon-custom{
+  font-size: 16px; border-radius: 50%; padding: 70%; background: #6a6f72;
+}
+.down-icon-custom{
+  font-size: 16px; border-radius: 50%; padding: 70%; background: #6a6f72; color: #3ac93a;
+}
+
+.nav-bg-custom{
+  background: #383c40; 
+  width: max-content;
+}
+.nav-border-btm{
+  border-bottom: 2px solid #322f2f;
+}
+.nav-input-bg{
+    background: #0d1216d9;
+    border: none;
+}
+.main-cnt-cry-text{
+  background: #4dc34dcf; 
+  border-radius: 50%; 
+  padding: 4%;
+}
+.nft-text-main-content{
+  background: #ff0076de; border-radius: 50%; padding: 4%;
+}
+.text-blockchain{
+  background: #ffff00cc; 
+  border-radius: 50%;
+  padding: 4%;
+}
+.text-immy-lilithy{
+  background: #ff5200cc; border-radius: 50%; padding: 4%;
+}
+.text-rockpals-nft{
+  background: rgb(47 203 138 / 81%); border-radius: 50%; padding: 4%;
+}
+.text-kubit{
+  background: #5458d9; border-radius: 50%; padding: 10%;
+}
+
+
+.main-content-bg{
+  background: rgb(56 60 64 / 84%);
+   width: inherit;
+}
+.content-border {
+  border-bottom: 2px solid #322f2f;
+}
+.online-text-bg {
+  background: #909497;
+}
+.text-add-frnd-bg {
+    background: #218121;
+    cursor: pointer;
+}
+.input-pd-custom {
+  padding: 1% 5%;
+}
+.input-text-bg {
+    background: #141312d1;
+    border: none;
+}
+.btn-search-border {
+    color: #fff;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+.btn-input-bg{
+    background: #141312d1;
+    border: none;
+}
+.text-online-custom{
+  border-bottom: 1px solid #6e6b6b;
+}
+.list-style-custom{
+  list-style: none;
+}
+.beard-text-custom{
+  background: gray; 
+  border-radius: 50%; 
+  padding: 10%;
+}
+.fa-solid-msg-custom{
+    border-radius: 50%;
+    padding: 45%;
+    background: #28292ae0;
+}
+.lilithy-icon-custom{
+  background: gray; 
+  border-radius: 50%; 
+  padding: 15%;
+}
+
+
+@media(max-width: 768px){
+  .home-bg{
+    flex-direction: column;
+  }
+  .flex-dir-custom{
+    flex-direction: column;
+  }
+  .nav-bg-custom{
+    width: auto;
+  }
+  .content-border{
+    justify-content: space-around;
+  }
+  .down-icon-custom,.li-circle-icon-custom,.text-icon-custom, .icon-usergroup,.li-icon-user-custom,.li-icon-custom,.text-sharp-solid-custom{
+    padding: 2%;
+  }
+}
